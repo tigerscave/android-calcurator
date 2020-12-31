@@ -3,4 +3,6 @@
     <string name="price_label">定価</string>
     <string name="discount_label">割引率</string>
     <string name="calculate_button">計算する</string>
+    <string name="expression">%1$,3d円の%2$d%%引きは</string>
+    <string name="result">%1$,3d円です</string>
 </resources>
