@@ -1,5 +1,6 @@
 package com.adawarp.tutorial_calcurator
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -40,6 +41,18 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("discount", discount)
                 startActivity(intent)
             }
+        }
+
+        val pref = getSharedPreferences("file_name", Context.MODE_PRIVATE)
+        val storedText = pref.getString("key", "未登録")
+
+        val editText = findViewById<EditText>(R.id.storagedText)
+        editText.setText(storedText)
+
+        val saveButton = findViewById<Button>(R.id.saveButton)
+        saveButton.setOnClickListener {
+            val inputText = editText.text.toString()
+            pref.edit().putString("key", inputText).apply()
         }
     }
 }

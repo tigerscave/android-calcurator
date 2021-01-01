@@ -5,4 +5,6 @@
     <string name="calculate_button">計算する</string>
     <string name="expression">%1$,3d円の%2$d%%引きは</string>
     <string name="result">%1$,3d円です</string>
+    <string name="storagedText">TextView</string>
+    <string name="saveButton">保存</string>
 </resources>
