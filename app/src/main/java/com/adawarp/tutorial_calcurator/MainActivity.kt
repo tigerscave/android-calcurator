@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+import android.widget.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +53,20 @@ class MainActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             val inputText = editText.text.toString()
             pref.edit().putString("key", inputText).apply()
+        }
+
+        val timeZones = TimeZone.getAvailableIDs()
+        val listView = findViewById<ListView>(R.id.timeZoneList)
+
+        val adapter = ArrayAdapter<String>(this,
+                R.layout.list_time_zone_row,
+                R.id.timeZone,
+                timeZones)
+
+        listView.adapter = adapter
+        listView.setOnItemClickListener { parant, view, position, id ->
+            val timeZone = adapter.getItem(position)
+            Toast.makeText(this, timeZone, Toast.LENGTH_SHORT).show()
         }
     }
 }
